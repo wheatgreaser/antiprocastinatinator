@@ -2,5 +2,26 @@
 
 {%block head %}{% endblock %}
 {% block body %}
-<p>Hey man</p>
+<div class="content">
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Added</th>
+      
+    </tr>
+     {% for task in tasks %}
+     <tr>
+       <td>{{task.content}}</td>
+       <td>{{task.date_created.date()}}</td>
+       
+     </tr>
+    {% endfor %}
+  </table>
+  <form action = '/' method="POST">
+    <input type="text" name="content" id = "content">
+    <input type="submit" value="Add Task">
+    
+  </form>
+    
+</div>
 {% endblock %}
